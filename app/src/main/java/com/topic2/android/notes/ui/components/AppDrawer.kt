@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.topic2.android.notes.theme.NotesTheme
@@ -32,6 +33,41 @@ private fun AppDrawerHeader() {
                 .align(alignment = Alignment.CenterVertically)
         )
     }
+}
+
+@Composable
+private fun ScreenNavigationButton(
+    icon: ImageVector,
+    label: String,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    val colors = MaterialTheme.colors
+
+    // Define alphas for the image for two different states
+    // of the button: selected/unselected
+    val imageAlpha = if (isSelected) {
+        1f
+    } else {
+        0.6f
+    }
+
+    // Define color for the text for two different states
+    // of the button: selected/unselected
+    val textColor = if (isSelected) {
+        colors.primary
+    } else {
+        colors.onSurface.copy(alpha = 0.6f)
+    }
+
+    // Define color for the background for two different states
+    // of the button: selected/unselected
+    val backgroundColor = if (isSelected) {
+        colors.primary.copy(alpha = 0.12f)
+    } else {
+        colors.onSurface
+    }
+
 }
 
 @Preview
