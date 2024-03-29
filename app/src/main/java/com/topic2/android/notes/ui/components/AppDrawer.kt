@@ -1,10 +1,15 @@
 package com.topic2.android.notes.ui.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -68,6 +73,36 @@ private fun ScreenNavigationButton(
         colors.onSurface
     }
 
+    Surface( // 1
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp, top = 8.dp),
+        color = backgroundColor,
+        shape = MaterialTheme.shapes.small
+    ) {
+        Row( // 2
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .clickable(onClick = onClick)
+                .fillMaxWidth()
+                .padding(4.dp)
+        ) {
+            Image(
+                imageVector = icon,
+                contentDescription = "Screen Navigation Button",
+                colorFilter = ColorFilter.tint(textColor),
+                alpha = imageAlpha
+            )
+            Spacer(Modifier.width(16.dp)) // 3
+            Text(
+                text = label,
+                style = MaterialTheme.typography.body2,
+                color = textColor,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+    }
 }
 
 @Preview
