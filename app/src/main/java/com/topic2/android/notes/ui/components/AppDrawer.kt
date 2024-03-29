@@ -12,6 +12,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -110,5 +111,18 @@ private fun ScreenNavigationButton(
 fun AppDrawerHeaderPreview() {
     NotesTheme {
         AppDrawerHeader()
+    }
+}
+
+@Preview
+@Composable
+fun ScreenNavigationButtonPreview() {
+    NotesTheme {
+        ScreenNavigationButton(
+            icon = Icons.Filled.Home,
+            label = "Заметки",
+            isSelected = true,
+            onClick = { }
+        )
     }
 }
