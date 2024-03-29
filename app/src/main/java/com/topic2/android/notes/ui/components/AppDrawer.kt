@@ -199,3 +199,11 @@ fun LightDarkThemeItemPreview() {
         LightDarkThemeItem()
     }
 }
+
+@Preview
+@Composable
+fun AppDrawerPreview() {
+    NotesTheme {
+        AppDrawer(Screen.Notes, {})
+    }
+}
